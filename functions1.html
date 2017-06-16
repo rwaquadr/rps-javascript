@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Functions - Day 1</title>
+
+</head>
+<script type="text/javascript">
+
+hands = ['rock','paper','scissors']
+	function getHand(){
+		return hands[parseInt(Math.random()*10) %3];
+	}
+	player1 = {
+		name: 'Robert',
+		playerHand: getHand(),
+		score: 0,
+	}
+	player2 = {
+		name: 'William',
+		playerHand: getHand(),
+		score: 0,
+	};
+	function playRound() {
+		switch(player1.playerHand + player2.playerHand) {
+			case 'rockscissors':
+			case 'scissorspaper':
+			case 'paperrock':
+				console.log(player1.name + ': ' + player1.playerHand);
+				console.log(player2.name + ': ' + player2.playerHand);
+				console.log(player1.name + ' wins the round');
+				return +1;
+				break;
+			case 'rockpaper':
+			case 'paperscissors':
+			case 'scissorsrock':
+				console.log(player1.name + ': ' + player1.playerHand);
+				console.log(player2.name + ': ' + player2.playerHand)
+				console.log(player2.name + ' wins this round');
+				return -1;
+				break;
+			case 'scissorsscissors':
+			case 'rockrock':
+			case 'paperpaper':
+				console.log(player1.name + ': ' + player1.playerHand)
+				console.log(player2.name + ': ' + player2.playerHand)
+				console.log("Sorry, it's a tie");
+				return null;
+				break;
+		}
+	};
+	function playGame(){
+		var playUntil = 5;
+		var winner = playRound();
+		var player1win = 0
+		var player2win = 0
+		
+			
+			while(player1win < playUntil && player2win < playUntil){
+				playRound() 
+    			
+					if (winner == +1) {
+						player1win++;
+					} else if (winner == -1) {
+						player2win++;
+					}
+			}
+			if (player1win > player2win) {
+				console.log(player1.name + ' wins the game!');
+			} else {
+				console.log(player2.name + ' wins the game!');
+			}
+		}
+	playGame()
+
+
+
+
+
+</script>
+
+
+<body>
+
+</body>
+</html>
